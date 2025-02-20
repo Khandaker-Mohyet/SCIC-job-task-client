@@ -1,6 +1,10 @@
+import { useContext } from "react";
+import { AuthContext } from "../Routes/AuthProvider";
+import { Link } from "react-router-dom";
 
 
 const Navbar = () => {
+  const {user, singInOut} = useContext(AuthContext)
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -22,36 +26,30 @@ const Navbar = () => {
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-            <li><a>Item 1</a></li>
-            <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li><a>Submenu 1</a></li>
-                <li><a>Submenu 2</a></li>
-              </ul>
-            </li>
-            <li><a>Item 3</a></li>
+            <div>{user && user.displayName? user.displayName: ""}</div>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <div>{user && user.email? user.email: ""}</div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <li><a>Item 1</a></li>
-          <li>
-            <details>
-              <summary>Parent</summary>
-              <ul className="p-2">
-                <li><a>Submenu 1</a></li>
-                <li><a>Submenu 2</a></li>
-              </ul>
-            </details>
-          </li>
-          <li><a>Item 3</a></li>
+          <div>{user && user.displayName? user.displayName: ""}</div>
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        {user && user.email ? (
+          <div className="bg-gradient-to-r from-pink-500 to-purple-500 p-[2px] rounded-full mr-3">
+            <img
+              title={`${user.displayName}`}
+              className="w-12 h-12 rounded-full bg-white object-cover"
+              src={user.photoURL}
+              alt="User"
+            />
+          </div>
+        ) : ""}
+        {
+          user && user?.email ? <Link to="/"><button onClick={singInOut} className="bg-gradient-to-r from-[#008080] to-[#a569bd] text-white font-semibold py-2 px-4 rounded shadow hover:shadow-lg transform hover:scale-105 transition-all">Log out</button></Link> : ""
+        }
       </div>
     </div>
   );
