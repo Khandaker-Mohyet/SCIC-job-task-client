@@ -1,12 +1,14 @@
-import MainCard from "./MainCard";
+import AllTask from "./AllTask";
 import Navbar from "./Navbar";
+import TaskForm from "./TaskForm";
 
 
 const Home = () => {
   return (
     <div>
       <Navbar></Navbar>
-      <MainCard></MainCard>
+      <TaskForm></TaskForm>
+      <AllTask></AllTask>
     </div>
   );
 };
