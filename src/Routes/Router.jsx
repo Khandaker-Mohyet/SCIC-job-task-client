@@ -5,6 +5,7 @@ import Main from "../Main/Main";
 import LogIn from "../Components/LogIn";
 import Register from "../Components/Register";
 import Home from "../Components/Home";
+import UpdateTask from "../Components/UpdateTask";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,11 @@ const router = createBrowserRouter([
         path: "/home",
         element: <Home></Home>,
       },
+      {
+        path: "/update/:id",
+        element: <UpdateTask></UpdateTask>,
+        loader:({params})=>fetch(`http://localhost:4000/task/${params.id}`)
+      }
     ]
   },
 ]);

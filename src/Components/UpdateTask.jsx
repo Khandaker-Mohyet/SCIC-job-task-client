@@ -1,10 +1,14 @@
 import axios from "axios";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 
+const UpdateTask = () => {
+  const update = useLoaderData()
+  const navigate = useNavigate()
+  console.log(update)
+  const {_id, title, category, description, } = update
 
-const MainCard = () => {
-
-  const handelTask = (e) => {
+  const handelUpdateTask = (e) => {
     e.preventDefault()
     const title = e.target.title.value
     const category = e.target.category.value
@@ -14,28 +18,30 @@ const MainCard = () => {
     const task = { title, category, description, timestamp }
     console.log(task)
 
-    axios.post('http://localhost:4000/task', task)
+    axios.put(`http://localhost:4000/task/${_id}`, task)
           .then(res => {
             console.log(res.data)
+            navigate("/home")
         })
   }
-
+  
 
   return (
     <div>
       <div className="max-w-md border-2 border-green-500 rounded-lg shadow-lg bg-white p-6 mx-auto">
-        <form onSubmit={handelTask}>
+        <form onSubmit={handelUpdateTask}>
           <div className="space-y-4">
             {/* First step */}
             <div className="flex flex-col md:flex-row gap-4">
               <input
                 type="text"
                 name="title"
+                defaultValue={title}
                 required
                 placeholder="Title"
                 className="input input-bordered input-success w-full p-3 rounded-lg border-2 border-green-400"
               />
-              <select name="category" required className="select select-bordered select-success w-full p-3 rounded-lg border-2 border-green-400">
+              <select name="category" required defaultValue={category} className="select select-bordered select-success w-full p-3 rounded-lg border-2 border-green-400">
                 <option disabled selected>Category</option>
                 <option>To-Do</option>
                 <option>In Progress</option>
@@ -47,11 +53,12 @@ const MainCard = () => {
               <input
                 type="text"
                 name="description"
+                defaultValue={description}
                 placeholder="Description"
                 className="input input-bordered input-success w-full p-3 rounded-lg border-2 border-green-400"
               />
               <button className="btn btn-success w-full md:w-auto px-6 py-3 text-white font-semibold rounded-lg hover:bg-green-700 transition-all">
-                Add Task
+                Update Task
               </button>
             </div>
           </div>
@@ -61,4 +68,4 @@ const MainCard = () => {
   );
 };
 
-export default MainCard;
+export default UpdateTask;
