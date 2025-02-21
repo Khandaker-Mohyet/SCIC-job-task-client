@@ -18,7 +18,7 @@ const Google = () => {
           displayName: result.user?.displayName,
           photoURL: result.user?.photoURL,
         }
-        axios.post('http://localhost:4000/user', userInfo)
+        axios.post('https://scic-job-task-server-murex.vercel.app/user', userInfo)
           .then(res => {
             console.log(res.data)
             navigate('/home')

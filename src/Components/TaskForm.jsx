@@ -14,7 +14,7 @@ const TaskForm = () => {
     const task = { title, category, description, timestamp }
     console.log(task)
 
-    axios.post('http://localhost:4000/task', task)
+    axios.post('https://scic-job-task-server-murex.vercel.app/task', task)
           .then(res => {
             console.log(res.data)
         })
