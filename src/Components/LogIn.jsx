@@ -55,7 +55,7 @@ const LogIn = () => {
           </form>
           <Google></Google>
           <p className="text-center mt-4 text-gray-600">
-            Don’t have an account? <Link className="text-red-600 font-semibold" to="/register">Register</Link>
+          <Link className="text-red-600 font-semibold" to="/register">Only use Google login</Link>
           </p>
         </div>
       </div>

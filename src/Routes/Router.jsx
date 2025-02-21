@@ -27,7 +27,7 @@ const router = createBrowserRouter([
       {
         path: "/update/:id",
         element: <UpdateTask></UpdateTask>,
-        loader:({params})=>fetch(`http://localhost:4000/task/${params.id}`)
+        loader:({params})=>fetch(`https://scic-job-task-server-murex.vercel.app/task/${params.id}`)
       }
     ]
   },

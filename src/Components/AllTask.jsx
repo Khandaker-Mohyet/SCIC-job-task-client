@@ -8,7 +8,7 @@ const AllTask = () => {
   const { data: allTasks = [], isLoading, error, refetch } = useQuery({
     queryKey: ["task"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:4000/task");
+      const res = await axios.get("https://scic-job-task-server-murex.vercel.app/task");
       return res.data;
     },
   });
@@ -25,7 +25,7 @@ const AllTask = () => {
 
   // single task load
   const fetchTaskDetails = async (id) => {
-    const res = await axios.get(`http://localhost:4000/task/${id}`);
+    const res = await axios.get(`https://scic-job-task-server-murex.vercel.app/task/${id}`);
     setSelectedTask(res.data);
   };
  
@@ -44,7 +44,7 @@ const AllTask = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const res = await axios.delete(`http://localhost:4000/task/${id}`);
+          const res = await axios.delete(`https://scic-job-task-server-murex.vercel.app/task/${id}`);
           if (res.data.deletedCount > 0) {
             Swal.fire("Deleted!", "Your note has been deleted.", "success");
             refetch();

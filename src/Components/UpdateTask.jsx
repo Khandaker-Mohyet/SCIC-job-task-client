@@ -18,7 +18,7 @@ const UpdateTask = () => {
     const task = { title, category, description, timestamp }
     console.log(task)
 
-    axios.put(`http://localhost:4000/task/${_id}`, task)
+    axios.put(`https://scic-job-task-server-murex.vercel.app/task/${_id}`, task)
           .then(res => {
             console.log(res.data)
             navigate("/home")
