@@ -33,6 +33,7 @@ const AllTask = () => {
   // delete
 
   const handleDelete = async (id) => {
+    setSelectedTask(null)
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
