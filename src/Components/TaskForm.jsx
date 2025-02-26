@@ -1,8 +1,11 @@
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 
 const TaskForm = () => {
+
+  const navigate = useNavigate()
 
   const handelTask = (e) => {
     e.preventDefault()
@@ -17,6 +20,7 @@ const TaskForm = () => {
     axios.post('https://scic-job-task-server-murex.vercel.app/task', task)
           .then(res => {
             console.log(res.data)
+            navigate('/home')
         })
   }
 
