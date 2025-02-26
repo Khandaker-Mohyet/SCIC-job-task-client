@@ -6,6 +6,7 @@ import LogIn from "../Components/LogIn";
 import Register from "../Components/Register";
 import Home from "../Components/Home";
 import UpdateTask from "../Components/UpdateTask";
+import TaskForm from "../Components/TaskForm";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/home",
         element: <Home></Home>,
+      },
+      {
+        path: "/addTask",
+        element: <TaskForm></TaskForm>,
       },
       {
         path: "/update/:id",
