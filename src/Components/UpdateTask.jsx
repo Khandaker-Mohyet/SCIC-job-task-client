@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 
 
 const UpdateTask = () => {
@@ -63,6 +63,11 @@ const UpdateTask = () => {
             </div>
           </div>
         </form>
+      </div>
+      <div className="text-center">
+        <Link to={"/home"}>
+          <button className="mt-4 btn btn-success">Cancel</button>
+        </Link>
       </div>
     </div>
   );

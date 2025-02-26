@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 
@@ -60,6 +60,11 @@ const TaskForm = () => {
             </div>
           </div>
         </form>
+      </div>
+      <div className="text-center">
+        <Link to={"/home"}>
+          <button className="mt-4 btn btn-success">All Task</button>
+        </Link>
       </div>
     </div>
   );
