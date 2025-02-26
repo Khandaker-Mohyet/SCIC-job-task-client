@@ -24,8 +24,8 @@ The project uses the following dependencies:
 ## Installation Steps
 1. **Clone the repository**
    ```sh
-   git clone https://github.com/your-repo/task-manager.git
-   cd task-manager
+   git clone https://github.com/Khandaker-Mohyet/SCIC-job-task-client
+   cd SCIC-job-task-client
    ```
 
 2. **Install frontend dependencies**
